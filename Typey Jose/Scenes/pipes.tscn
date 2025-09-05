@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3okj2iq1v5ks"]
+
+[ext_resource type="Script" path="res://Scripts/pipes.gd" id="1_ue5ao"]
+[ext_resource type="Texture2D" uid="uid://bnf3hfo1awl38" path="res://Assets/trombone.png" id="2_b6r2g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcyh1"]
+size = Vector2(9, 504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k50kf"]
+size = Vector2(21, 347)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpdaw"]
+size = Vector2(13, 253)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53mlj"]
+size = Vector2(45.5, 175)
+
+[node name="pipes" type="Node2D"]
+process_mode = 3
+process_priority = 5
+process_physics_priority = 5
+position = Vector2(0, 2)
+script = ExtResource("1_ue5ao")
+
+[node name="Upper Pipe" type="StaticBody2D" parent="."]
+position = Vector2(1015, 157)
+
+[node name="Sprite2D" type="Sprite2D" parent="Upper Pipe"]
+position = Vector2(-163.125, -278.25)
+scale = Vector2(0.263857, 0.347497)
+texture = ExtResource("2_b6r2g")
+
+[node name="Upper Hitbox" type="Area2D" parent="Upper Pipe"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upper Pipe/Upper Hitbox"]
+position = Vector2(-195.5, -281)
+shape = SubResource("RectangleShape2D_hcyh1")
+
+[node name="Lower Pipe" type="StaticBody2D" parent="."]
+position = Vector2(573, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Lower Pipe"]
+position = Vector2(202.508, 574.759)
+rotation = 3.13831
+scale = Vector2(0.263632, 0.357326)
+texture = ExtResource("2_b6r2g")
+
+[node name="Lower Hitbox" type="Area2D" parent="Lower Pipe"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower Pipe/Lower Hitbox"]
+position = Vector2(192.5, 709.5)
+shape = SubResource("RectangleShape2D_k50kf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lower Pipe/Lower Hitbox"]
+position = Vector2(234.5, 442.5)
+shape = SubResource("RectangleShape2D_mpdaw")
+
+[node name="Score Area" type="Area2D" parent="."]
+position = Vector2(817, 193)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Area"]
+position = Vector2(-0.75, 28.5)
+shape = SubResource("RectangleShape2D_53mlj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Upper Pipe/Upper Hitbox" to="." method="_on_upper_hitbox_body_entered"]
+[connection signal="body_entered" from="Lower Pipe/Lower Hitbox" to="." method="_on_lower_hitbox_body_entered"]
+[connection signal="body_entered" from="Score Area" to="." method="_on_score_area_body_entered"]

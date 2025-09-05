@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di41138tif1nk"
+path="res://.godot/imported/original gangster.mp3-76f0ab498d2e6a910ef091bb0bec2cab.mp3str"
+
+[deps]
+
+source_file="res://jose sounds/original gangster.mp3"
+dest_files=["res://.godot/imported/original gangster.mp3-76f0ab498d2e6a910ef091bb0bec2cab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

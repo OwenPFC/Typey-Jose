@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnhbeph35h0o0"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_rdlni"]
+[ext_resource type="PackedScene" uid="uid://ck0roqh70fruk" path="res://Scenes/hud.tscn" id="2_kn2ch"]
+[ext_resource type="Texture2D" uid="uid://c0rjgngcqpql6" path="res://Assets/ol stony.png" id="2_nfx48"]
+[ext_resource type="PackedScene" uid="uid://c3okj2iq1v5ks" path="res://Scenes/pipes.tscn" id="3_xksu4"]
+[ext_resource type="PackedScene" uid="uid://be41dspfjvncw" path="res://Scenes/player.tscn" id="4_6sxaw"]
+[ext_resource type="PackedScene" uid="uid://bk2jenscmtshi" path="res://Scenes/pipe_spawner.tscn" id="5_ju5is"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_rdlni")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(579.5, 341.5)
+scale = Vector2(0.948248, 1.10714)
+texture = ExtResource("2_nfx48")
+
+[node name="Player" parent="." instance=ExtResource("4_6sxaw")]
+position = Vector2(225, 189)
+
+[node name="Pipe Spawner" parent="." instance=ExtResource("5_ju5is")]
+
+[node name="pipes" parent="." instance=ExtResource("3_xksu4")]
+position = Vector2(-1000, 0)
+
+[node name="HUD" parent="." instance=ExtResource("2_kn2ch")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="hitGround" from="Player" to="pipes" method="_on_player_hit_ground"]
+[connection signal="letterTyped" from="Player" to="HUD" method="_on_player_letter_typed"]
+[connection signal="normal" from="Player" to="HUD" method="_on_player_normal"]
+[connection signal="start" from="Player" to="Pipe Spawner" method="_on_player_start"]
+[connection signal="start" from="Player" to="HUD" method="_on_player_start"]
+[connection signal="typey" from="Player" to="HUD" method="_on_player_typey"]
+[connection signal="wordToDisplay" from="Player" to="HUD" method="_on_player_word_to_display"]
+[connection signal="sendScore" from="Pipe Spawner" to="HUD" method="_on_pipe_spawner_send_score"]
+[connection signal="gotHit" from="pipes" to="Player" method="_on_pipes_got_hit"]
+[connection signal="gotHit" from="pipes" to="Pipe Spawner" method="_on_pipes_got_hit"]
+[connection signal="gotHit" from="pipes" to="HUD" method="_on_pipes_got_hit"]
+[connection signal="scoreUp" from="pipes" to="." method="_on_pipes_score_up"]
+[connection signal="scoreUp" from="pipes" to="HUD" method="_on_pipes_score_up"]
+[connection signal="change_sprite" from="HUD" to="Player" method="_on_hud_change_sprite"]
+[connection signal="resetHit" from="HUD" to="Player" method="_on_hud_reset_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

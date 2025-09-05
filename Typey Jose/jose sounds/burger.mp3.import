@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm7n030p25jm2"
+path="res://.godot/imported/burger.mp3-597a9cfb000e2e46f7dcb4556b45a121.mp3str"
+
+[deps]
+
+source_file="res://jose sounds/burger.mp3"
+dest_files=["res://.godot/imported/burger.mp3-597a9cfb000e2e46f7dcb4556b45a121.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

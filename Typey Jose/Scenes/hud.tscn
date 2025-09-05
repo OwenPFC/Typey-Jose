@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck0roqh70fruk"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_8b06e"]
+[ext_resource type="Texture2D" uid="uid://ngawip2bvjrw" path="res://Assets/black.png" id="2_wnsw0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4mltq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yylsi"]
+texture = SubResource("CanvasTexture_4mltq")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ksgkp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjq0t"]
+texture = SubResource("CanvasTexture_ksgkp")
+modulate_color = Color(0, 0, 0, 0.32549)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8b06e")
+
+[node name="Score" type="Label" parent="."]
+top_level = true
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 107.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.12549, 0.686275, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="Score"]
+self_modulate = Color(1, 1, 1, 0.721569)
+show_behind_parent = true
+position = Vector2(64.5, 33.25)
+scale = Vector2(0.371824, 0.154891)
+texture = ExtResource("2_wnsw0")
+
+[node name="Message" type="Label" parent="."]
+offset_left = 286.0
+offset_top = 308.0
+offset_right = 599.0
+offset_bottom = 403.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yylsi")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 546.0
+offset_top = 329.0
+offset_right = 644.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 23
+text = "RIP
+
+Restart?"
+
+[node name="textToType" type="RichTextLabel" parent="."]
+offset_left = 812.0
+offset_top = 132.0
+offset_right = 1086.0
+offset_bottom = 286.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_bjq0t")
+bbcode_enabled = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 855.0
+offset_top = 37.0
+offset_right = 1088.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "Type this!!!|
+                   \\/"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="menuButton" type="Button" parent="."]
+visible = false
+offset_left = 496.0
+offset_top = 450.0
+offset_right = 689.0
+offset_bottom = 493.0
+theme_override_font_sizes/font_size = 20
+text = "Return to menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]

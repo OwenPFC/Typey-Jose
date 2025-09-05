@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kb8xts5vhc3"
+path="res://.godot/imported/monkanko.mp3-9622015618f04a79f8314b2eef3d9df9.mp3str"
+
+[deps]
+
+source_file="res://jose sounds/monkanko.mp3"
+dest_files=["res://.godot/imported/monkanko.mp3-9622015618f04a79f8314b2eef3d9df9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
