@@ -1,4 +1,4 @@
-# Typey-Jose
+# Typey Jose
 
 [Newgrounds](https://www.newgrounds.com/portal/view/996198), [Itch.io](https://jowain.itch.io/typey-jose)
 
@@ -8,7 +8,7 @@ This is a Flappy-like Typing Game. Rather than just single inputs, you must type
 
 I originally was making a straight Flappy Bird clone to learn the engine, and then I was struck with inspiration to turn it into a typing game. I got assistance from my friend Jose, as he is the face of the game, the voice actor (as himself), and the originator of the quotes in the game
 
-# Some technical notes
+# Technical Notes
 As of writing this (September 2025), Typey Jose was developed over a year ago. The programming is really bad. I did some refactoring to fix some egregious issues:
 * The pipes in the game were never destroyed, so eventually the game would crash due to overflow
   
